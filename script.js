@@ -18,18 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
         showQuestions();
         document.getElementById('submit-btn').style.display = 'block'; // Show the submit button
     }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    };
     
     const questions = [
         { question: "On a scale of 1 to 5, how safe do you feel when walking alone at night in your neighborhood?", options: ["Very Unsafe", "Unsafe", "Neutral", "Safe", "Very Safe"] },
