@@ -19,6 +19,17 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('submit-btn').style.display = 'block'; // Show the submit button
     }
 
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
     
     const questions = [
         { question: "On a scale of 1 to 5, how safe do you feel when walking alone at night in your neighborhood?", options: ["Very Unsafe", "Unsafe", "Neutral", "Safe", "Very Safe"] },
@@ -100,9 +111,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Event listener for submit button
     submitButton.addEventListener('click', function() {
-        getUserAnswers(); // Get user answers
-        saveUserAnswersToLocalStorage(userAnswers); // Save answers to local storage
-        showResults(); // Show results
+           // Get user answers
+    getUserAnswers();
+    
+    // Check if all questions are answered
+    if (userAnswers.includes(null)) {
+        alert("Please answer all questions before submitting.");
+        return; // Exit the function early if not all questions are answered
+    }
+    
+    // Save answers to local storage
+    saveUserAnswersToLocalStorage(userAnswers);
+    
+    // Show results
+    showResults();
     });
 
 
