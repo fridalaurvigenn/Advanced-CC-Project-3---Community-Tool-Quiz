@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const genderSelect = document.getElementById("genderSelect");
     if (genderSelect.value === "") {
       alert(
-        "Please select your gender identity before proceeding (It is key to the results accurately reflecting the diversity of experiences."
+        "Please select your gender identity before proceeding (It is key to the results accurately reflecting the diversity of experiences)."
       );
       return; // Exit the function early if gender question is not answered
     }
